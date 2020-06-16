@@ -4,7 +4,7 @@ export const AppContext = React.createContext(null)
 
 export const AppProvider = ({ children }) => {
   const [state, setState] = useState({
-    status: 'idle',
+    status: 'loading',
     data: null,
     refreshing: false,
   })

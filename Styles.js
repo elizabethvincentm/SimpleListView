@@ -44,4 +44,13 @@ export const Styles = StyleSheet.create({
   cardImage: {
     aspectRatio: 16 / 9,
   },
+  errorView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: 'auto',
+  },
+  errorText: {
+    textAlign: 'center',
+  },
 })

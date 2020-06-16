@@ -1,7 +1,14 @@
 import React, { useContext } from 'react'
-import { View, ActivityIndicator, FlatList, RefreshControl } from 'react-native'
+import {
+  View,
+  Text,
+  FlatList,
+  RefreshControl,
+  ActivityIndicator,
+} from 'react-native'
 import { Card } from './Card'
 import { AppContext } from '../contexts'
+import { Styles } from '../Styles'
 
 export const List = () => {
   const { state, setState } = useContext(AppContext)
@@ -24,6 +31,11 @@ export const List = () => {
       )}
       {status === 'loading' && (
         <ActivityIndicator size="large" color="dodgerblue" />
+      )}
+      {status === 'error' && (
+        <View style={Styles.errorView}>
+          <Text style={Styles.errorText}>Oops! Something went wrong!</Text>
+        </View>
       )}
     </View>
   )

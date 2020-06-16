@@ -3,7 +3,11 @@ import axios from 'axios'
 export const AppContext = React.createContext(null)
 
 export const AppProvider = ({ children }) => {
-  const [state, setState] = useState({ status: 'idle', data: null })
+  const [state, setState] = useState({
+    status: 'idle',
+    data: null,
+    refreshing: false,
+  })
   useEffect(() => {
     const fetchData = async () => {
       setState((prev) => ({ status: 'loading', data: prev.data }))
@@ -18,7 +22,11 @@ export const AppProvider = ({ children }) => {
       }
     }
     fetchData()
-  }, [])
+  }, [state.refreshing])
 
-  return <AppContext.Provider value={{ state }}>{children}</AppContext.Provider>
+  return (
+    <AppContext.Provider value={{ state, setState }}>
+      {children}
+    </AppContext.Provider>
+  )
 }

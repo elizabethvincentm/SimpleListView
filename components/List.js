@@ -10,7 +10,7 @@ export const List = () => {
     <View>
       {status === 'success' && (
         <FlatList
-          data={data.results}
+          data={data}
           renderItem={({ item }) => <Card details={item} />}
           keyExtractor={(item, index) => JSON.stringify(index)}
         />

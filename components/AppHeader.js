@@ -1,10 +1,11 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import { Styles } from '../Styles'
 
 export const AppHeader = () => {
   return (
-    <View>
-      <Text>Simple List View</Text>
+    <View style={Styles.headerView}>
+      <Text style={Styles.headerText}>Top Stories</Text>
     </View>
   )
 }

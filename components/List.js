@@ -12,7 +12,7 @@ export const List = () => {
         <FlatList
           data={data.results}
           renderItem={({ item }) => <Card details={item} />}
-          keyExtractor={(item) => item.title}
+          keyExtractor={(item, index) => JSON.stringify(index)}
         />
       )}
       {status === 'loading' && <Text>Loading</Text>}

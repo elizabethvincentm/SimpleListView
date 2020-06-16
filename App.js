@@ -10,10 +10,11 @@ import React from 'react'
 import { View } from 'react-native'
 import { AppHeader, List } from './components'
 import { AppProvider } from './contexts'
+import { Styles } from './Styles'
 const App = () => {
   return (
     <AppProvider>
-      <View>
+      <View styles={Styles.container}>
         <AppHeader />
         <List />
       </View>

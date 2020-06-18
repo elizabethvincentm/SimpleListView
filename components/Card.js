@@ -3,6 +3,7 @@ import { Image, Text, Linking, TouchableOpacity } from 'react-native'
 import { Styles } from '../Styles'
 
 export const Card = ({ details }) => {
+  console.log(details.multimedia)
   return (
     <TouchableOpacity
       style={Styles.card}
@@ -10,14 +11,16 @@ export const Card = ({ details }) => {
     >
       <Text style={Styles.cardTitle}>{details.title}</Text>
       <Text style={Styles.cardDesc}>{details.abstract}</Text>
-      <Image
-        source={{
-          uri: details.multimedia.filter(
-            (media) => media.format === 'superJumbo'
-          )[0].url,
-        }}
-        style={Styles.cardImage}
-      />
+      {details.multimedia && (
+        <Image
+          source={{
+            uri: (details.multimedia || []).filter(
+              (media) => media.format === 'superJumbo'
+            )[0].url,
+          }}
+          style={Styles.cardImage}
+        />
+      )}
     </TouchableOpacity>
   )
 }

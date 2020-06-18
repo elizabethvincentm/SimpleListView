@@ -1,11 +1,8 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 export const Styles = StyleSheet.create({
   container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 50,
     flex: 1,
-    backgroundColor: 'black',
+    width: Dimensions.get('window').width,
   },
   headerView: {
     backgroundColor: 'dodgerblue',
@@ -46,11 +43,15 @@ export const Styles = StyleSheet.create({
   },
   errorView: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 'auto',
   },
   errorText: {
     textAlign: 'center',
+    fontSize: 24,
+    padding: 12,
+    fontWeight: 'bold',
+  },
+  errorSubText: {
+    textAlign: 'center',
+    fontSize: 16,
   },
 })

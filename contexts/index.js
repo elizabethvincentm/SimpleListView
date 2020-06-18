@@ -7,21 +7,31 @@ export const AppProvider = ({ children }) => {
     status: 'loading',
     data: null,
     refreshing: false,
+    errorData: null,
   })
   useEffect(() => {
     const fetchData = async () => {
-      setState((prev) => ({ status: 'loading', data: prev.data }))
       try {
         const response = await axios.get(
-          'https://api.nytimes.com/svc/topstories/v2/world.json?api-key=Gl7cNmF4SSSmsDvLZQLuWiZPzf09DupT'
+          'https://api.nytimes.com/svc/topstories/v2/world.json?api-key=Gl7cNmF4SSSmsDvLZQLuWiZPzf09DupT',
+          { timeout: 60 * 1 * 1000 }
         )
-        setState({ status: 'success', data: response.data.results })
+        setState((prev) => ({
+          ...prev,
+          status: 'success',
+          data: response.data.results,
+        }))
       } catch (error) {
-        console.error('Error:', error)
-        setState((prev) => ({ status: 'error', data: prev.data }))
+        setState((prev) => ({
+          ...prev,
+          status: 'error',
+          errorData: error,
+        }))
       }
     }
     fetchData()
+    state.refreshing &&
+      setTimeout(() => setState({ ...state, refreshing: false }))
   }, [state.refreshing])
 
   return (

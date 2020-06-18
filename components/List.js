@@ -1,19 +1,12 @@
 import React, { useContext } from 'react'
-import {
-  View,
-  Text,
-  FlatList,
-  RefreshControl,
-  ActivityIndicator,
-} from 'react-native'
+import { View, FlatList, RefreshControl, ActivityIndicator } from 'react-native'
 import { Card } from './Card'
 import { AppContext } from '../contexts'
-import { Styles } from '../Styles'
+import { ErrorHandler } from './ErrorHandler'
 
 export const List = () => {
   const { state, setState } = useContext(AppContext)
   const { status, data, refreshing } = state
-
   return (
     <View>
       {status === 'success' && (
@@ -23,6 +16,8 @@ export const List = () => {
           refreshControl={
             <RefreshControl
               refreshing={refreshing}
+              size="large"
+              progressBackgroundColor="dodgerblue"
               onRefresh={() => setState({ ...state, refreshing: true })}
             />
           }
@@ -32,11 +27,7 @@ export const List = () => {
       {status === 'loading' && (
         <ActivityIndicator size="large" color="dodgerblue" />
       )}
-      {status === 'error' && (
-        <View style={Styles.errorView}>
-          <Text style={Styles.errorText}>Oops! Something went wrong!</Text>
-        </View>
-      )}
+      {status === 'error' && <ErrorHandler />}
     </View>
   )
 }

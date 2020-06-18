@@ -3,7 +3,6 @@ import { Image, Text, Linking, TouchableOpacity } from 'react-native'
 import { Styles } from '../Styles'
 
 export const Card = ({ details }) => {
-  console.log(details.multimedia)
   return (
     <TouchableOpacity
       style={Styles.card}

@@ -5,6 +5,7 @@ import { Styles } from '../Styles'
 export const Card = ({ details }) => {
   return (
     <TouchableOpacity
+      testID="card"
       style={Styles.card}
       onPress={() => Linking.openURL(details.url)}
     >

@@ -25,7 +25,7 @@ export const List = () => {
         />
       )}
       {status === 'loading' && (
-        <ActivityIndicator size="large" color="dodgerblue" />
+        <ActivityIndicator testID="loader" size="large" color="dodgerblue" />
       )}
       {status === 'error' && <ErrorHandler />}
     </View>

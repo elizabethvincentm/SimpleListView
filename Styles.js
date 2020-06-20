@@ -3,21 +3,23 @@ export const Styles = StyleSheet.create({
   container: {
     flex: 1,
     width: Dimensions.get('window').width,
+    height: 200,
+    backgroundColor: '#bdbdbd',
   },
   headerView: {
-    backgroundColor: 'dodgerblue',
+    backgroundColor: '#00796b',
     padding: 10,
-    marginBottom: 50,
   },
   headerText: {
     textAlign: 'center',
     fontSize: 24,
+    color: 'whitesmoke',
   },
   card: {
     padding: 20,
     flex: 1,
     margin: 16,
-    backgroundColor: 'blanchedalmond',
+    backgroundColor: '#efefef',
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

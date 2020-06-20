@@ -17,7 +17,7 @@ export const List = () => {
             <RefreshControl
               refreshing={refreshing}
               size="large"
-              progressBackgroundColor="dodgerblue"
+              progressBackgroundColor="#00796b"
               onRefresh={() => setState({ ...state, refreshing: true })}
             />
           }
@@ -25,7 +25,7 @@ export const List = () => {
         />
       )}
       {status === 'loading' && (
-        <ActivityIndicator testID="loader" size="large" color="dodgerblue" />
+        <ActivityIndicator testID="loader" size="large" color="#00796b" />
       )}
       {status === 'error' && <ErrorHandler />}
     </View>

@@ -8,15 +8,18 @@
 
 import React from 'react'
 import { View } from 'react-native'
-import { AppHeader, List } from './components'
+import { AppHeader, List, ErrorBoundary } from './components'
 import { AppProvider } from './contexts'
 import { Styles } from './Styles'
+
 const App = () => {
   return (
     <AppProvider>
       <View styles={Styles.container}>
         <AppHeader />
-        <List />
+        <ErrorBoundary>
+          <List />
+        </ErrorBoundary>
       </View>
     </AppProvider>
   )

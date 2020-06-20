@@ -7,17 +7,17 @@
  */
 
 import React from 'react'
+import { Styles } from './Styles'
 import { View, StatusBar } from 'react-native'
 import { AppHeader, List, ErrorBoundary } from './components'
 import { AppProvider } from './contexts'
-import { Styles } from './Styles'
 
 const App = () => {
   return (
     <>
       <StatusBar backgroundColor="#004c40" />
       <AppProvider>
-        <View styles={Styles.container}>
+        <View style={Styles.container}>
           <AppHeader />
           <ErrorBoundary>
             <List />

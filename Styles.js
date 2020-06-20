@@ -1,11 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 export const Styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    width: Dimensions.get('window').width,
-    height: 200,
-    backgroundColor: '#bdbdbd',
-  },
+  container: { flex: 1, backgroundColor: '#bdbdbd' },
   headerView: {
     backgroundColor: '#00796b',
     padding: 10,
